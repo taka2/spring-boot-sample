@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>top page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css"/>
+  </head>
+  <body>
+    <h1>Index page</h1>
+    <p class="msg" th:text="${msg}"/>
+    <ul th:each="str:${strArray}">
+      <li th:text="${str}"/>
+    </ul>
+    
+    <form th:object="${form}" th:action="@{/personList}" method="post">
+      <table id="myTable" class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person,rowStat : *{personList}">
+          <td th:text="${person.id}"/>
+    	  <td>
+    	    <input type="text" th:field="*{personList[__${rowStat.index}__].name}"></input>
+    	  </td>
+    	  <td>
+    	    <input type="text" th:field="*{personList[__${rowStat.index}__].age}"></input>
+    	  </td>
+        </tr>
+        </tbody>
+      </table>
+      <p>
+        <input type="submit" class="btn btn-primary"></input>
+      </p>
+    </form>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#myTable').dataTable({
+          "info": false
+          , "paging": false
+          , "searching": false
+        });
+      });
+    </script>
+  </body>
+</html>
