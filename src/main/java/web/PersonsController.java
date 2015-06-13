@@ -16,7 +16,10 @@ import service.PersonService;
 public class PersonsController extends ApplicationController {
     @RequestMapping("/persons")
     public String persons(Model model, @ModelAttribute("form") PersonsForm form) {
-    	System.out.println("session = " + session.getAttribute("userid"));
+    	// 認証チェック
+    	if(!authenticated()) {
+    		return "redirect:/";
+    	}
 
     	// Person一覧を取得
     	List<Person> persons = PersonService.getPersons();
@@ -31,6 +34,11 @@ public class PersonsController extends ApplicationController {
 
     @RequestMapping(value = "/registerPersons", method = RequestMethod.POST)
     public String registerPersons(@ModelAttribute("form") PersonsForm form) {
+    	// 認証チェック
+    	if(!authenticated()) {
+    		return "redirect:/";
+    	}
+
     	// submitされた値を表示
     	for(Person person : form.getPersons()) {
     		System.out.println(person);
