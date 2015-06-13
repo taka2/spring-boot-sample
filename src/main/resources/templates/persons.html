@@ -35,6 +35,7 @@
             <th>id</th>
             <th>name</th>
             <th>age</th>
+            <th>country</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +47,11 @@
     	  </td>
     	  <td>
     	    <input type="text" th:field="*{persons[__${rowStat.index}__].age}"></input>
+    	  </td>
+    	  <td>
+    	    <select th:field="*{persons[__${rowStat.index}__].country}">
+    	      <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"/>
+    	    </select>
     	  </td>
         </tr>
         </tbody>
