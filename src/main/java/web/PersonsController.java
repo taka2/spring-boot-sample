@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import service.PersonService;
 
 @Controller
-public class PersonsController {
-
+public class PersonsController extends ApplicationController {
     @RequestMapping("/persons")
     public String persons(Model model, @ModelAttribute("form") PersonsForm form) {
+    	System.out.println("session = " + session.getAttribute("userid"));
+
     	// Person一覧を取得
     	List<Person> persons = PersonService.getPersons();
     	// formにセット

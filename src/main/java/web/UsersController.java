@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class UsersController {
+public class UsersController extends ApplicationController {
 
     @RequestMapping("/")
     public String home(Model model, @ModelAttribute("form") UsersForm form) {
@@ -19,6 +19,8 @@ public class UsersController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute("form") UsersForm form) {
     	// 認証
+    	System.out.println(form.getUserid() + ":" + form.getPassword());
+    	session.setAttribute("userid", "aaa");
         return "redirect:/persons";
     }
 
