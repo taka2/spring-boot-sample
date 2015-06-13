@@ -19,13 +19,13 @@ public class UsersController extends ApplicationController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute("form") UsersForm form) {
     	// 認証
-    	System.out.println(form.getUserid() + ":" + form.getPassword());
-    	session.setAttribute("userid", "aaa");
+    	session.setAttribute("userid", form.getUserid());
         return "redirect:/persons";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(Model model, @ModelAttribute("form") UsersForm form) {
+    	session.setAttribute("userid", null);
         return "redirect:/";
     }
 }
