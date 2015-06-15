@@ -9,7 +9,7 @@ import service.auth.AuthServiceFactory;
 public class AuthServiceFactoryTest {
 	@Test
 	public void testGetInstance() {
-		AuthService authService = AuthServiceFactory.getInstance("DummyAuthService");
+		AuthService authService = AuthServiceFactory.getInstance();
 		assertThat(authService.getClass().getName(), is("service.auth.DummyAuthService"));
 	}
 }

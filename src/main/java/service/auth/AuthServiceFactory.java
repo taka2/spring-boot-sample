@@ -1,8 +1,11 @@
 package service.auth;
 
+import config.AppConfigService;
+
 
 public class AuthServiceFactory {
-	public static synchronized AuthService getInstance(String authServiceClassname) {
+	public static synchronized AuthService getInstance() {
+		String authServiceClassname = AppConfigService.getInstance().getAppConfig().getAuthServiceClassname();
 		if("DummyAuthService".equals(authServiceClassname)) {
 			return new DummyAuthService();
 		} else if("LdapAuthService".equals(authServiceClassname)) {
