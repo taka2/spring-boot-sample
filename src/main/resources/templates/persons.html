@@ -28,8 +28,16 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-    
-    <form th:object="${form}" th:action="@{/registerPersons}" method="post">
+
+    <form th:object="${form}" th:action="@{/persons}" method="get">
+      <input type="text" th:field="*{search}"></input>
+      <p>
+        <input type="submit" class="btn btn-primary" value="検索"></input>
+      </p>
+    </form>    
+    <form th:object="${form}" th:action="@{/registerPersons}" method="post" th:if="${display=form.persons != null}">
+      <!-- 検索条件保持 -->
+      <input type="hidden" th:field="*{search}"></input>
       <table id="myTable" class="table table-striped">
         <thead>
           <tr>

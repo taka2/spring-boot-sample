@@ -21,10 +21,13 @@ public class PersonsController extends ApplicationController {
     		return "redirect:/";
     	}
 
-    	// Person一覧を取得
-    	List<Person> persons = PersonService.getPersons();
-    	// formにセット
-    	form.setPersons(persons);
+    	String search = form.getSearch();
+    	if(search != null) {
+	    	// Person一覧を取得
+	    	List<Person> persons = PersonService.getPersons();
+	    	// formにセット
+	    	form.setPersons(persons);
+    	}
 
     	// country一覧をセット
     	String[] countries = {"Japan", "US"};
@@ -46,6 +49,6 @@ public class PersonsController extends ApplicationController {
     	// Person一覧を更新
     	PersonService.setPersons(form.getPersons());
 
-        return "redirect:/persons";
+    	return "redirect:/persons?search=" + form.getSearch();
     }
 }
