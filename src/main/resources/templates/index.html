@@ -54,8 +54,10 @@
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input th:field="*{userid}" type="text" class="form-control" placeholder="Userid"/>
+        <span th:if="${#fields.hasErrors('userid')}" class="text-danger" th:errors="*{userid}">Error</span>
         <label for="inputPassword" class="sr-only">Password</label>
         <input th:field="*{password}" type="password" class="form-control" placeholder="Password"/>
+        <span th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}">Error</span>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
