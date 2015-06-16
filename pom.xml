@@ -62,12 +62,6 @@
     </profile>
     <profile>
       <id>dev</id>
-      <activation>
-        <property>
-          <name>spring.profiles.active</name>
-          <value>dev</value>
-        </property>
-      </activation>
       <properties>
         <env>dev</env>
       </properties>
