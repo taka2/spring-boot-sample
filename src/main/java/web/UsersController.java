@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import service.auth.AuthService;
 import service.auth.AuthServiceFactory;
+import config.ConfigService;
 
 @Controller
 public class UsersController extends ApplicationController {
@@ -21,6 +22,7 @@ public class UsersController extends ApplicationController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute("form") UsersForm form) {
+    	ConfigService.printAAA();
     	// 認証
     	AuthService authService = AuthServiceFactory.getInstance();
     	if(!authService.authentication(form.getUserid(), form.getPassword())) {

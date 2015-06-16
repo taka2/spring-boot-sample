@@ -11,31 +11,66 @@
   </parent>
   <dependencies>
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
-    	<groupId>org.jmockit</groupId>
-    	<artifactId>jmockit</artifactId>
-    	<version>1.17</version>
-    	<scope>test</scope>
+      <groupId>org.jmockit</groupId>
+      <artifactId>jmockit</artifactId>
+      <version>1.17</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>junit</groupId>
-    	<artifactId>junit</artifactId>
-    	<scope>test</scope>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
+    <filters>
+      <filter>src/main/filters/${env}.properties</filter>
+    </filters>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
-        <plugin>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <addResources>false</addResources>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>local</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <env>local</env>
+      </properties>
+    </profile>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <property>
+          <name>spring.profiles.active</name>
+          <value>dev</value>
+        </property>
+      </activation>
+      <properties>
+        <env>dev</env>
+      </properties>
+    </profile>
+  </profiles>
 </project>
