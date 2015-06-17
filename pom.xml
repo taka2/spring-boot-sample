@@ -45,6 +45,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
+          <!-- mavenがfilterしたファイルをspring bootが上書きしない設定 -->
           <addResources>false</addResources>
         </configuration>
       </plugin>
