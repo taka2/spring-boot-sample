@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/jquery.dataTables.min.css"/>
-    <link rel="stylesheet" href="css/dataTables.fixedColumns.min.css"/>
     <style type="text/css">
       body {
         padding-top: 50px;
@@ -21,6 +20,8 @@
           <ul class="nav navbar-nav">
             <a class="navbar-brand" href="/">Logo</a>
             <li class="active"><a href="/persons">一覧</a></li>
+            <li class="active"><a href="/persons_jqgrid">一覧(jqgrid)</a></li>
+            <li class="active"><a href="/persons_w2ui">一覧(w2ui)</a></li>
           </ul>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -45,27 +46,15 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>column1</th>
-            <th>column2</th>
-            <th>column3</th>
             <th>name</th>
             <th>age</th>
             <th>country</th>
-            <th>column4</th>
-            <th>column5</th>
-            <th>column6</th>
-            <th>column7</th>
-            <th>column8</th>
-            <th>column9</th>
           </tr>
         </thead>
         <tbody>
         <tr th:each="person,rowStat : *{persons}">
           <input type="hidden" th:field="*{persons[__${rowStat.index}__].id}"></input>
           <td th:text="${person.id}"/>
-    	  <td>value1</td>
-    	  <td>value2</td>
-    	  <td>value3</td>
     	  <td>
     	    <input type="text" th:field="*{persons[__${rowStat.index}__].name}"></input>
     	  </td>
@@ -77,12 +66,6 @@
     	      <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"/>
     	    </select>
     	  </td>
-    	  <td>value4</td>
-    	  <td>value5</td>
-    	  <td>value6</td>
-    	  <td>value7</td>
-    	  <td>value8</td>
-    	  <td>value9</td>
         </tr>
         </tbody>
       </table>
@@ -93,18 +76,14 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.fixedColumns.min.js"></script>
     <script type="text/javascript" language="javascript" class="init">
       $(document).ready(function(){
         var table = $('#myTable').dataTable({
           "info": false
           , "paging": false
-          , "searching": false
+          , "searching": true
 		  , "scrollX": true
 		  , "scrollCollapse": true
-        });
-        new $.fn.dataTable.FixedColumns(table, {
-          leftColumns: 4
         });
       });
     </script>
