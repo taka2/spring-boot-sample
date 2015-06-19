@@ -36,23 +36,27 @@
 
 <div id="grid" style="width: 100%; height: 350px;"></div>
 <script type="text/javascript">
+var countries = [
+  {id: 1, text: 'Japan'}
+  , {id: 2, text: 'US'}
+];
 $(function () {
     $('#grid').w2grid({
         name: 'grid',
         url: '/persons.w2ui.json',
         method: 'GET',
         multiSearch: false,
-        searches: [
-            { field: 'id', caption: 'ID ', type: 'int' },
-            { field: 'name', caption: 'Last Name', type: 'text' },
-            { field: 'age', caption: 'First Name', type: 'int' },
-            { field: 'country', caption: 'Email', type: 'text' }
-        ],
         columns: [
-            { field: 'id', caption: 'ID', size: '30%' },
-            { field: 'name', caption: 'Last Name', size: '30%' },
-            { field: 'age', caption: 'First Name', size: '40%' },
-            { field: 'country', caption: 'Email', size: '120px' }
+            { field: 'recid', caption: 'ID', size: '10%', key:true },
+            { field: 'name', caption: 'Name', size: '20%', editable: { type: 'text' } },
+            { field: 'age', caption: 'Age', size: '20%', editable: { type: 'int' } },
+            { field: 'country', caption: 'Country', size: '50%', sortable: true, resizable: true, 
+                editable: { type: 'list', items: countries, showAll: true },
+                render: function (record, index, col_index) {
+                    var html = this.getCellValue(index, col_index);
+                    return html.text || '';
+                }
+            }
         ],
         show: { 
             toolbar: true,
