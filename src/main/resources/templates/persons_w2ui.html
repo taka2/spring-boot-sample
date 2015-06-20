@@ -36,6 +36,7 @@
 
 <div id="grid" style="width: 100%; height: 350px;"></div>
 <script type="text/javascript">
+w2utils.settings.dataType = 'JSON';
 var countries = [
   {id: 1, text: 'Japan'}
   , {id: 2, text: 'US'}
@@ -43,8 +44,10 @@ var countries = [
 $(function () {
     $('#grid').w2grid({
         name: 'grid',
-        url: '/persons.w2ui.json',
-        method: 'GET',
+        url: {
+          get: '/persons.w2ui.json',
+          save: '/persons.w2ui.register'
+        }, 
         multiSearch: false,
         columns: [
             { field: 'recid', caption: 'ID', size: '10%', key:true },
@@ -64,7 +67,7 @@ $(function () {
             toolbarSave: true,
             toolbarSearch: false,
             toolbarColumns: false
-        },
+        }
     });
 });
 </script>

@@ -1,15 +1,15 @@
 package model;
 
 public class PersonForW2UI {
-	private Integer recid;
+	private Long recid;
 	private String name;
-	private Integer age;
+	private Long age;
 	private Country country;
 
 	public PersonForW2UI() {
 		
 	}
-	public PersonForW2UI(Integer recid, String name, Integer age, Country country) {
+	public PersonForW2UI(Long recid, String name, Long age, Country country) {
 		this.recid = recid;
 		this.name = name;
 		this.age = age;
@@ -27,10 +27,10 @@ public class PersonForW2UI {
 		
 		return sb.toString();
 	}
-	public Integer getRecid() {
+	public Long getRecid() {
 		return recid;
 	}
-	public void setRecid(Integer recid) {
+	public void setRecid(Long recid) {
 		this.recid = recid;
 	}
 	public String getName() {
@@ -39,10 +39,10 @@ public class PersonForW2UI {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getAge() {
+	public Long getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(Long age) {
 		this.age = age;
 	}
 	public Country getCountry() {
