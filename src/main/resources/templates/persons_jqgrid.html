@@ -18,6 +18,26 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
+    <script type="text/javascript">
+jQuery(document).ready(function(){ 
+  jQuery("#grid").jqGrid({
+   url:'/persons.jqgrid.json',
+   datatype: 'json',
+   colNames: ['ID','Name', 'Age', 'Country'],
+   colModel: [ 
+     {name:'id', index:'id', width:155, key:true}, 
+     {name:'name', index:'name', width:120}, 
+     {name:'age', index:'age', width:180}, 
+     {name:'country', index:'country', width:200}
+   ],
+   pager: '#pgrid',
+   height: "100%",
+   regional: 'ja'
+ });
+ jQuery('#grid').jqGrid('filterToolbar');
+ jQuery("#grid").jqGrid('navGrid','#pgrid',{edit:false,add:false,del:false,search:false});
+});
+</script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -43,31 +63,7 @@
         <input type="submit" class="btn btn-primary" value="検索"></input>
       </p>
     </form>
-<table id="grid"></table>
-<div id="pgrid"></div>
-<script type="text/javascript">
-jQuery(document).ready(function(){ 
-  jQuery("#grid").jqGrid({
-   url:'/persons.jqgrid.json',
-   mtype: 'GET',
-   datatype: 'json',
-   colNames: ['ID','Name', 'Age', 'Country'],
-   colModel: [ 
-     {name:'id', index:'id', width:155, key:true}, 
-     {name:'name', index:'name', width:120}, 
-     {name:'age', index:'age', width:180}, 
-     {name:'country', index:'country', width:200}
-   ],
-   viewrecords: true,
-   pager: '#pgrid',
-   height: "100%",
-   regional: 'ja'
- });
-});
-jQuery("#grid").jqGrid('navGrid','#pgrid',
- {edit:true,add:false,del:false,search:true,refresh:true}); 
- 
-</script>
-
+    <table id="grid"></table>
+    <div id="pgrid"></div>
   </body>
 </html>

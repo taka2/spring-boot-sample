@@ -17,14 +17,14 @@ import service.PersonService;
 @RequestMapping("/persons.jqgrid.json")
 public class PersonsControllerForJqgrid extends ApplicationController {
     @RequestMapping(method = RequestMethod.GET)
-    public Map<String, Object> getPersons() {
+    public Map<String, Object> getPersons(@ModelAttribute Person person) {
     	// 認証チェック
     	if(!authenticated()) {
     		return null;
     	}
 
     	// Person一覧を取得
-    	List<Person> persons = PersonService.getPersons();
+    	List<Person> persons = PersonService.getPersons(person);
     	Map<String, Object> result = new HashMap<String, Object>();
     	result.put("total", 1);
     	result.put("page", 1);
