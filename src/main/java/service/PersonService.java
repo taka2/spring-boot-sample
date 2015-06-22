@@ -8,10 +8,10 @@ import model.Person;
 public class PersonService {
 	private static List<Person> persons = new ArrayList<Person>();
 	static {
-    	persons.add(new Person(1, "Taro", 25, "Japan"));
-    	persons.add(new Person(2, "Bob", 35, "US"));
-    	persons.add(new Person(3, "Hanako", 45, "Japan"));
-    	persons.add(new Person(4, "Nancy", 55, "US"));
+    	persons.add(new Person(1L, "Taro", 25L, "Japan"));
+    	persons.add(new Person(2L, "Bob", 35L, "US"));
+    	persons.add(new Person(3L, "Hanako", 45L, "Japan"));
+    	persons.add(new Person(4L, "Nancy", 55L, "US"));
 	}
 
 	public static List<Person> getPersons() {
@@ -36,6 +36,25 @@ public class PersonService {
     	}
     	
     	return resultList;
+	}
+	public static Person searchByRecid(Long id) {
+		final int personsSize = persons.size();
+		for(int i=0; i<personsSize; i++) {
+			Person person = persons.get(i);
+			if(person.getId() == id) {
+				return person;
+			}
+		}
+		
+		return null;
+	}
+	public static void updatePerson(Person person) {
+		final int personsSize = persons.size();
+		for(int i=0; i<personsSize; i++) {
+			if(persons.get(i).getId() == person.getId()) {
+				persons.set(i, person);
+			}
+		}
 	}
 	public static void setPersons(List<Person> persons) {
 		PersonService.persons = persons;

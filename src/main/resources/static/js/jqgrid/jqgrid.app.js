@@ -30,4 +30,28 @@ jQuery(document).ready(function(){
       lastSelection = id;
     }
   }
+
+  var sendData = function(data) {
+    var dataToSend = JSON.stringify(data);
+    $.ajax({
+        type: "POST",
+        url: "/persons.jqgrid.register",
+        dataType:"json",
+        data: dataToSend,
+        contentType: "application/json; charset=utf-8",
+        success: function(response, textStatus, jqXHR) {
+            // display an success message if needed
+            alert("success");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            // display an error message in any way
+            alert("error");
+        }
+    });
+  };
+
+  $("#btnJqgridSave").click(function(){
+    var localGridData = $("#grid").getRowData();
+    sendData(localGridData);
+  });
 });
