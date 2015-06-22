@@ -25,17 +25,20 @@ jQuery(document).ready(function(){
    datatype: 'json',
    colNames: ['ID','Name', 'Age', 'Country'],
    colModel: [ 
-     {name:'id', index:'id', width:155, key:true}, 
-     {name:'name', index:'name', width:120}, 
-     {name:'age', index:'age', width:180}, 
-     {name:'country', index:'country', width:200}
+     {name:'id', index:'id', width:355, key:true, frozen: true}, 
+     {name:'name', index:'name', width:220, frozen: true}, 
+     {name:'age', index:'age', width:380}, 
+     {name:'country', index:'country', width:400}
    ],
+   shrinkToFit: false,
    pager: '#pgrid',
    height: "100%",
+   width: 800,
    regional: 'ja'
  });
  jQuery('#grid').jqGrid('filterToolbar');
  jQuery("#grid").jqGrid('navGrid','#pgrid',{edit:false,add:false,del:false,search:false});
+ jQuery("#grid").jqGrid("setFrozenColumns");
 });
 </script>
   </head>
