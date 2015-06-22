@@ -18,29 +18,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
-    <script type="text/javascript">
-jQuery(document).ready(function(){ 
-  jQuery("#grid").jqGrid({
-   url:'/persons.jqgrid.json',
-   datatype: 'json',
-   colNames: ['ID','Name', 'Age', 'Country'],
-   colModel: [ 
-     {name:'id', index:'id', width:355, key:true, frozen: true}, 
-     {name:'name', index:'name', width:220, frozen: true}, 
-     {name:'age', index:'age', width:380}, 
-     {name:'country', index:'country', width:400}
-   ],
-   shrinkToFit: false,
-   pager: '#pgrid',
-   height: "100%",
-   width: 800,
-   regional: 'ja'
- });
- jQuery('#grid').jqGrid('filterToolbar');
- jQuery("#grid").jqGrid('navGrid','#pgrid',{edit:false,add:false,del:false,search:false});
- jQuery("#grid").jqGrid("setFrozenColumns");
-});
-</script>
+    <script src="js/jqgrid/jqgrid.app.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
