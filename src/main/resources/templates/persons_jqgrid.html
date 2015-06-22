@@ -38,12 +38,6 @@
       </div>
     </nav>
 
-    <form th:object="${form}" th:action="@{/persons2}" method="get">
-      <input type="text" th:field="*{search}"></input>
-      <p>
-        <input type="submit" class="btn btn-primary" value="検索"></input>
-      </p>
-    </form>
     <table id="grid"></table>
     <div id="pgrid"></div>
   </body>
