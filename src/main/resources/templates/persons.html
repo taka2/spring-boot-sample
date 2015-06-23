@@ -52,6 +52,13 @@
             <th>country</th>
             <th>city</th>
             <th>check</th>
+            <th>col1</th>
+            <th>col2</th>
+            <th>col3</th>
+            <th>col4</th>
+            <th>col5</th>
+            <th>col6</th>
+            <th>col7</th>
           </tr>
         </thead>
         <tbody>
@@ -59,29 +66,36 @@
           <input type="hidden" th:field="*{persons[__${rowStat.index}__].id}"></input>
           <td th:text="${person.id}"/>
     	  <td>
-    	    <input type="text" th:field="*{persons[__${rowStat.index}__].name}"></input>
+    	    <input type="text" class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].name}"></input>
     	  </td>
     	  <td>
-    	    <input type="text" th:field="*{persons[__${rowStat.index}__].age}"></input>
+    	    <input type="text" class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].age}"></input>
     	  </td>
     	  <td>
-    	    <select th:field="*{persons[__${rowStat.index}__].country}">
+    	    <select class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].country}">
     	      <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"/>
     	    </select>
     	  </td>
     	  <td th:if="${display=form.persons[__${rowStat.index}__].country == 'Japan'}">
-    	    <select th:field="*{persons[__${rowStat.index}__].city}">
+    	    <select class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].city}">
     	      <option th:each="city : ${citiesForJapan}" th:value="${city}" th:text="${city}"/>
     	    </select>
     	  </td>
     	  <td th:if="${display=form.persons[__${rowStat.index}__].country == 'US'}">
-    	    <select th:field="*{persons[__${rowStat.index}__].city}">
+    	    <select class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].city}">
     	      <option th:each="city : ${citiesForUS}" th:value="${city}" th:text="${city}"/>
     	    </select>
     	  </td>
     	  <td>
     	    <input type="checkbox" th:field="*{persons[__${rowStat.index}__].check}"></input>
     	  </td>
+    	  <td>val1</td>
+    	  <td>val2</td>
+    	  <td>val3</td>
+    	  <td>val4</td>
+    	  <td>val5</td>
+    	  <td>val6</td>
+    	  <td>val7</td>
         </tr>
         </tbody>
       </table>
@@ -127,11 +141,18 @@
         var table = $('#myTable').dataTable({
           columns : [
             { "width": "1%" }
-            , { "width": "5%", "orderDataType": "dom-text", type: 'string' }
+            , { "width": "10%", "orderDataType": "dom-text", type: 'string' }
             , { "width": "5%","orderDataType": "dom-text-numeric" }
-            , { "width": "5%","orderDataType": "dom-select" }
-            , { "width": "5%","orderDataType": "dom-select" }
-            , { "width": "79%","orderDataType": "dom-checkbox" }
+            , { "width": "10%","orderDataType": "dom-select" }
+            , { "width": "10%","orderDataType": "dom-select" }
+            , { "width": "1%","orderDataType": "dom-checkbox" }
+            , { "width": "10%" }
+            , { "width": "10%" }
+            , { "width": "10%" }
+            , { "width": "10%" }
+            , { "width": "10%" }
+            , { "width": "10%" }
+            , { "width": "3%" }
           ]
           , "info": false
           , "paging": false
