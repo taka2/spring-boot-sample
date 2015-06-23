@@ -43,7 +43,7 @@
     <form th:object="${form}" th:action="@{/registerPersons}" method="post" th:if="${display=form.persons != null}">
       <!-- 検索条件保持 -->
       <input type="hidden" th:field="*{search}"></input>
-      <table id="myTable" class="table table-striped">
+      <table id="myTable" class="display compact cell-border">
         <thead>
           <tr>
             <th>id</th>
@@ -126,12 +126,12 @@
       $(document).ready(function(){
         var table = $('#myTable').dataTable({
           columns : [
-            null
-            , { "orderDataType": "dom-text", type: 'string' }
-            , { "orderDataType": "dom-text-numeric" }
-            , { "orderDataType": "dom-select" }
-            , { "orderDataType": "dom-select" }
-            , { "orderDataType": "dom-checkbox" }
+            { "width": "1%" }
+            , { "width": "5%", "orderDataType": "dom-text", type: 'string' }
+            , { "width": "5%","orderDataType": "dom-text-numeric" }
+            , { "width": "5%","orderDataType": "dom-select" }
+            , { "width": "5%","orderDataType": "dom-select" }
+            , { "width": "79%","orderDataType": "dom-checkbox" }
           ]
           , "info": false
           , "paging": false
