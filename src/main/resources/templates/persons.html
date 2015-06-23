@@ -90,6 +90,7 @@
       </p>
     </form>
     <script type="text/javascript" language="javascript" class="init">
+      // inputタグ内の値でソートできるようにする処理（関数定義）
       /* Create an array with the values of all the input boxes in a column */
       $.fn.dataTable.ext.order['dom-text'] = function ( settings, col )
       {
@@ -128,8 +129,8 @@
             null
             , { "orderDataType": "dom-text", type: 'string' }
             , { "orderDataType": "dom-text-numeric" }
-            , { "orderDataType": "dom-text", type: 'string' }
-            , { "orderDataType": "dom-text", type: 'string' }
+            , { "orderDataType": "dom-select" }
+            , { "orderDataType": "dom-select" }
             , { "orderDataType": "dom-checkbox" }
           ]
           , "info": false
