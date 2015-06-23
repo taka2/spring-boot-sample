@@ -32,7 +32,13 @@ public class PersonsController extends ApplicationController {
     	// country一覧をセット
     	String[] countries = {"Japan", "US"};
     	model.addAttribute("countries", countries);
-        return "persons";
+    	// city(Japan)一覧をセット
+    	String[] citiesForJapan = {"Tokyo", "Osaka"};
+    	model.addAttribute("citiesForJapan", citiesForJapan);
+    	// city(US)一覧をセット
+    	String[] citiesForUS = {"Newyork", "Cicago"};
+    	model.addAttribute("citiesForUS", citiesForUS);
+    	return "persons";
     }
 
     @RequestMapping(value = "/registerPersons", method = RequestMethod.POST)
