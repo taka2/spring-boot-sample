@@ -8,10 +8,10 @@ import model.Person;
 public class PersonService {
 	private static List<Person> persons = new ArrayList<Person>();
 	static {
-    	persons.add(new Person(1L, "Taro", 25L, "Japan", "Tokyo", true));
-    	persons.add(new Person(2L, "Bob", 35L, "US", "Newyork", false));
-    	persons.add(new Person(3L, "Hanako", 45L, "Japan", "Osaka", false));
-    	persons.add(new Person(4L, "Nancy", 55L, "US", "Cicago", true));
+    	persons.add(new Person(101L, "Taro", 25L, "Japan", "Tokyo", true));
+    	persons.add(new Person(102L, "Bob", 35L, "US", "Newyork", false));
+    	persons.add(new Person(103L, "Hanako", 45L, "Japan", "Osaka", false));
+    	persons.add(new Person(104L, "Nancy", 55L, "US", "Cicago", true));
 	}
 
 	public static List<Person> getPersons() {
