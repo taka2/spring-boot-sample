@@ -8,16 +8,18 @@ public class Person {
 	private Long age;
 	private String country;
 	private String city;
+	private boolean check;
 
 	public Person() {
 		
 	}
-	public Person(Long id, String name, Long age, String country, String city) {
+	public Person(Long id, String name, Long age, String country, String city, Boolean check) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.country = country;
 		this.city = city;
+		this.check = check;
 	}
 	public Person(Map<String, Object> map) {
 		this.id = (Long)map.get("id");
@@ -25,6 +27,7 @@ public class Person {
 		this.age = (Long)map.get("age");
 		this.country = (String)map.get("country");
 		this.city = (String)map.get("city");
+		this.check = (Boolean)map.get("check");
 	}
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -37,6 +40,8 @@ public class Person {
 		sb.append(this.country);
 		sb.append(":");
 		sb.append(this.city);
+		sb.append(":");
+		sb.append(this.check);
 		
 		return sb.toString();
 	}
@@ -69,5 +74,11 @@ public class Person {
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	public boolean isCheck() {
+		return check;
+	}
+	public void setCheck(boolean check) {
+		this.check = check;
 	}
 }
