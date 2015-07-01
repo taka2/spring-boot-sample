@@ -10,6 +10,13 @@
       body {
         padding-top: 50px;
       }
+      .input-xs {
+        height: 22px;
+        padding: 5px 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+      }
     </style>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -28,8 +35,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active" th:text="${session['userid']}"/>
-            <li class="active"><a href="/logout">ログアウト</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span th:text="${session['userid']}"></span><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="/logout">ログアウト</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -67,23 +78,23 @@
           <input type="hidden" th:field="*{persons[__${rowStat.index}__].id}"></input>
           <td th:text="${person.id}"/>
     	  <td>
-    	    <input type="text" class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].name}"></input>
+    	    <input type="text" class="form-control input-xs" th:field="*{persons[__${rowStat.index}__].name}"></input>
     	  </td>
     	  <td>
-    	    <input type="text" class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].age}"></input>
+    	    <input type="text" class="form-control input-xs" th:field="*{persons[__${rowStat.index}__].age}"></input>
     	  </td>
     	  <td>
-    	    <select class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].country}">
+    	    <select class="form-control input-xs" th:field="*{persons[__${rowStat.index}__].country}">
     	      <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"/>
     	    </select>
     	  </td>
     	  <td th:if="${display=form.persons[__${rowStat.index}__].country == 'Japan'}">
-    	    <select class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].city}">
+    	    <select class="form-control input-xs" th:field="*{persons[__${rowStat.index}__].city}">
     	      <option th:each="city : ${citiesForJapan}" th:value="${city}" th:text="${city}"/>
     	    </select>
     	  </td>
     	  <td th:if="${display=form.persons[__${rowStat.index}__].country == 'US'}">
-    	    <select class="form-control input-sm" th:field="*{persons[__${rowStat.index}__].city}">
+    	    <select class="form-control input-xs" th:field="*{persons[__${rowStat.index}__].city}">
     	      <option th:each="city : ${citiesForUS}" th:value="${city}" th:text="${city}"/>
     	    </select>
     	  </td>
