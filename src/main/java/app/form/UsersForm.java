@@ -3,9 +3,9 @@ package app.form;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class UsersForm {
-	@NotEmpty(message="ユーザIDは必須です")
+	@NotEmpty(message="{NotEmpty.UsersForm.userid}")
 	private String userid;
-	@NotEmpty(message="パスワードは必須です")
+	@NotEmpty(message="{NotEmpty.UsersForm.password}")
 	private String password;
 	public String getUserid() {
 		return userid;

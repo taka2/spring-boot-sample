@@ -25,7 +25,7 @@ public class UsersValidator implements Validator {
     	if(!authService.authentication(form.getUserid(), form.getPassword())) {
     		// 認証NG
             // メッセージを埋め込み
-	        errors.rejectValue("userid", "UsersValidator.authenticationFailed", "ユーザIDまたはパスワードに誤りがあります");
+    		errors.rejectValue("userid", "UsersValidator.authenticationFailed");
     	}
     }
 }
