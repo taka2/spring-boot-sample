@@ -26,7 +26,7 @@
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <ul class="nav navbar-nav">
             <a class="navbar-brand" href="/">Logo</a>
@@ -51,7 +51,7 @@
       <p>
         <input type="submit" class="btn btn-primary" value="検索"></input>
       </p>
-    </form>    
+    </form>
     <form th:object="${form}" th:action="@{/registerPersons}" method="post" th:if="${display=form.persons != null}">
       <!-- 検索条件保持 -->
       <input type="hidden" th:field="*{search}"></input>
@@ -146,7 +146,7 @@
       {
         return this.api().column( col, {order:'index'} ).nodes().map( function ( td, i ) {
           return $('input', td).prop('checked') ? '1' : '0';
-        } ); 
+        } );
       }
 
       $(document).ready(function(){
@@ -179,7 +179,7 @@
       var cities = {
         "Japan" : [
           "Tokyo", "Osaka"
-        ], 
+        ],
         "US" : [
           "Newyork", "Cicago"
         ]
