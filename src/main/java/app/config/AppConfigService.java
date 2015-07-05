@@ -1,29 +1,28 @@
 package app.config;
 
-/**
- * AppConfigを保持するクラス
- */
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+
 public class AppConfigService {
 	private static AppConfigService theInstance;
-	private AppConfig appConfig;
+	private PropertiesConfiguration prop;
 
-	private AppConfigService(AppConfig appConfig) {
-		this.appConfig = appConfig;
+	private AppConfigService() {
+		try {
+			prop = new PropertiesConfiguration("application.properties");
+		} catch(ConfigurationException e) {
+			throw new RuntimeException(e);
+		}
 	}
+
 	public synchronized static AppConfigService getInstance() {
 		if(theInstance == null) {
-			throw new RuntimeException("AppConfigService is not initialized.");
+			theInstance = new AppConfigService();
 		}
 		return theInstance;
 	}
-	public synchronized static AppConfigService getInstance(AppConfig appConfig) {
-		if(theInstance == null) {
-			theInstance = new AppConfigService(appConfig);
-		}
-		return theInstance;
-	}
-	
-	public AppConfig getAppConfig() {
-		return this.appConfig;
+
+	public String getAuthServiceClassname() {
+ 		return prop.getString("authservice.classname");
 	}
 }

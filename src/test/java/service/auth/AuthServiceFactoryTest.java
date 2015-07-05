@@ -6,19 +6,17 @@ import mockit.Mocked;
 
 import org.junit.Test;
 
-import app.config.AppConfig;
 import app.config.AppConfigService;
 import app.service.auth.AuthService;
 import app.service.auth.AuthServiceFactory;
 
 public class AuthServiceFactoryTest {
 	@Test
-	public void testGetInstanceForDummyAuthService(final @Mocked AppConfig appConfig) {
+	public void testGetInstanceForDummyAuthService(final @Mocked AppConfigService appConfigService) {
 		// 準備
 		new Expectations() {{
-			appConfig.getAuthServiceClassname(); result = "DummyAuthService";
+			appConfigService.getAuthServiceClassname(); result = "DummyAuthService";
 		}};
-		AppConfigService.getInstance(appConfig);
 
 		// 実行
 		AuthService authService = AuthServiceFactory.getInstance();
