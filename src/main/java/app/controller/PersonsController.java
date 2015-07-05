@@ -23,6 +23,9 @@ public class PersonsController extends ApplicationController {
 
     	String search = form.getSearch();
     	if(search != null) {
+    		if("AAA".equals(search)) {
+    			throw new RuntimeException("AAA");
+    		}
 	    	// Person一覧を取得
 	    	List<Person> persons = PersonService.getPersons();
 	    	// formにセット

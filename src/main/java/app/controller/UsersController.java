@@ -38,7 +38,7 @@ public class UsersController extends ApplicationController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(Model model, @Validated @ModelAttribute("form") UsersForm form, BindingResult result) {
-    	ConfigService.printAAA();
+    	System.out.println(ConfigService.getInstance().getAAA());
     	// 入力チェック
     	if(result.hasErrors()) {
     		return "index";

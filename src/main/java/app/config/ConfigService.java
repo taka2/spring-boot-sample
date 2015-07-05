@@ -1,19 +1,28 @@
 package app.config;
 
-import java.io.InputStream;
-import java.util.Properties;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 
-// config.properties
 public class ConfigService {
-	public static void printAAA() {
-    	try {
-    		InputStream is = ConfigService.class.getResourceAsStream("/config.properties");
-    		Properties prop = new Properties();
-    		prop.load(is);
-    		System.out.println(prop.getProperty("aaa"));
-    		is.close();
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
+	private static ConfigService theInstance;
+	private PropertiesConfiguration prop;
+
+	private ConfigService() {
+		try {
+			prop = new PropertiesConfiguration("config.properties");
+		} catch(ConfigurationException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public synchronized static ConfigService getInstance() {
+		if(theInstance == null) {
+			theInstance = new ConfigService();
+		}
+		return theInstance;
+	}
+
+	public String getAAA() {
+ 		return prop.getString("aaa");
 	}
 }
