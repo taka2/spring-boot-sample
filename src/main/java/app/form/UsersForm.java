@@ -1,4 +1,4 @@
-package web;
+package app.form;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

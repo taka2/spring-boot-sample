@@ -1,8 +1,8 @@
-package web;
+package app.form;
 
 import java.util.List;
 
-import model.Person;
+import app.model.Person;
 
 public class PersonsForm {
 	private String search;

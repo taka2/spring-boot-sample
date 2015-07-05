@@ -1,11 +1,12 @@
-package web;
+package app.validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import service.auth.AuthService;
-import service.auth.AuthServiceFactory;
+import app.form.UsersForm;
+import app.service.auth.AuthService;
+import app.service.auth.AuthServiceFactory;
 
 @Component
 public class UsersValidator implements Validator {

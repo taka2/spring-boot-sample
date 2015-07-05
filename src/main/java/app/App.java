@@ -1,11 +1,11 @@
-package web;
+package app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import config.AppConfig;
-import config.AppConfigService;
+import app.config.AppConfig;
+import app.config.AppConfigService;
 
 @SpringBootApplication
 public class App {

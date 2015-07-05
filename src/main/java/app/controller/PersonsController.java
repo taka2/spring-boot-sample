@@ -1,8 +1,6 @@
-package web;
+package app.controller;
 
 import java.util.List;
-
-import model.Person;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import service.PersonService;
+import app.form.PersonsForm;
+import app.model.Person;
+import app.service.PersonService;
 
 @Controller
 public class PersonsController extends ApplicationController {

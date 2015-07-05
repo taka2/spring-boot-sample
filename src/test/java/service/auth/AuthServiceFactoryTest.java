@@ -6,8 +6,10 @@ import mockit.Mocked;
 
 import org.junit.Test;
 
-import config.AppConfig;
-import config.AppConfigService;
+import app.config.AppConfig;
+import app.config.AppConfigService;
+import app.service.auth.AuthService;
+import app.service.auth.AuthServiceFactory;
 
 public class AuthServiceFactoryTest {
 	@Test
@@ -17,11 +19,11 @@ public class AuthServiceFactoryTest {
 			appConfig.getAuthServiceClassname(); result = "DummyAuthService";
 		}};
 		AppConfigService.getInstance(appConfig);
-		
+
 		// 実行
 		AuthService authService = AuthServiceFactory.getInstance();
-		
+
 		// 検証
-		assertThat(authService.getClass().getName(), is("service.auth.DummyAuthService"));
+		assertThat(authService.getClass().getName(), is("app.service.auth.DummyAuthService"));
 	}
 }

@@ -1,6 +1,6 @@
-package service.auth;
+package app.service.auth;
 
-import config.AppConfigService;
+import app.config.AppConfigService;
 
 
 public class AuthServiceFactory {

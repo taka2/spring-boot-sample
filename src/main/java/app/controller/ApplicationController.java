@@ -1,4 +1,4 @@
-package web;
+package app.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Controller;
 
-import config.AppConfig;
+import app.config.AppConfig;
 
 @Controller
 @EnableConfigurationProperties(AppConfig.class)

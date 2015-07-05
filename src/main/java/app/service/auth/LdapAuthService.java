@@ -1,4 +1,4 @@
-package service.auth;
+package app.service.auth;
 
 public class LdapAuthService implements AuthService {
 

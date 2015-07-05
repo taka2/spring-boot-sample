@@ -1,9 +1,9 @@
-package service;
+package app.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Person;
+import app.model.Person;
 
 public class PersonService {
 	private static List<Person> persons = new ArrayList<Person>();

@@ -1,4 +1,4 @@
-package config;
+package app.config;
 
 /**
  * AppConfigを保持するクラス
