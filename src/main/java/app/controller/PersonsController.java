@@ -1,7 +1,6 @@
 package app.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,11 +25,6 @@ public class PersonsController extends ApplicationController {
 
     @RequestMapping("/persons")
     public String persons(Model model, @ModelAttribute("form") PersonsForm form) {
-    	// 認証チェック
-    	if(!authenticated()) {
-    		return "redirect:/";
-    	}
-
     	if(repository.count() == 0) {
     		// 初期データ投入
     		repository.save(new PulldownValue("country", null, "Japan", 1));
@@ -100,11 +94,6 @@ public class PersonsController extends ApplicationController {
 
     @RequestMapping(value = "/registerPersons", method = RequestMethod.POST)
     public String registerPersons(@ModelAttribute("form") PersonsForm form) {
-    	// 認証チェック
-    	if(!authenticated()) {
-    		return "redirect:/";
-    	}
-
     	// submitされた値を表示
     	for(Person person : form.getPersons()) {
     		System.out.println(person);
