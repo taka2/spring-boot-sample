@@ -19,6 +19,14 @@
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+      <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+    </dependency>
+    <dependency>
       <groupId>commons-configuration</groupId>
       <artifactId>commons-configuration</artifactId>
       <version>1.10</version>
@@ -53,13 +61,6 @@
           <!-- mavenがfilterしたファイルをspring bootが上書きしない設定 -->
           <addResources>false</addResources>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>springloaded</artifactId>
-            <version>1.2.3.RELEASE</version>
-          </dependency>
-        </dependencies>
       </plugin>
       <plugin>
         <!-- コンパイラ -->
